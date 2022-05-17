@@ -6,27 +6,30 @@ const licenseFilePath = "C:\\Program Files (x86)\\Eziriz\\.NET Reactor\\license.
 const dotreactorPath = "C:\\Program Files (x86)\\Eziriz\\.NET Reactor\\dotNET_Reactor.Console.exe"
 
 function installDotreactor() {
+  console.log('[Install .NET Reactor]')
   if (!existsSync(dotreactorPath)){
+    console.log('- Installing...')
     execSync('START /WAIT dnr_setup_latest_build.exe /silent');
+    console.log('- Done.')
+  } else {
+    console.log('- Already installed.')
   }
 }
 
 function writeLicenseFile() {
+  console.log('[Set up license]')
   const licenseData = decodeBase64String(getInput('license'));
+  console.log('- Writing license file...')
   writeFileSync(licenseFilePath, licenseData);
+  console.log('- Done.')
 }
 
 function decodeBase64String(string) {
+  console.log('- Decoding license')
   return Buffer.from(string, "base64").toString("utf-8");
-}
-
-function obfuscateFiles() {
-  const projectPath = getInput('project_path');
-  execSync(`"${dotreactorPath}" -project "${projectPath}"`);
 }
 
 exports.default = function () {
   installDotreactor();
   writeLicenseFile();
-  obfuscateFiles();
 }
