@@ -1,12 +1,14 @@
+const {existsSync, writeFileSync} = require('fs');
 const {execSync} = require('child_process');
 const {getInput} = require('@actions/core')
-const {writeFileSync} = require('fs');
 
 const licenseFilePath = "C:\\Program Files (x86)\\Eziriz\\.NET Reactor\\license.v3lic"
 const dotreactorPath = "C:\\Program Files (x86)\\Eziriz\\.NET Reactor\\dotNET_Reactor.Console.exe"
 
 function installDotreactor() {
-  execSync('START /WAIT dnr_setup_latest_build.exe /silent');
+  if (!existsSync(dotreactorPath)){
+    execSync('START /WAIT dnr_setup_latest_build.exe /silent');
+  }
 }
 
 function writeLicenseFile() {
