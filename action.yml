@@ -1,0 +1,14 @@
+name: 'Dotreactor Obfuscation Action'
+description: 'Obfuscates .NET files'
+inputs:
+  project_path:
+    description: 'Path to the .NET project file'
+    required: true
+
+  license:
+    description: 'Base64 encoded license file'
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'main.js'
