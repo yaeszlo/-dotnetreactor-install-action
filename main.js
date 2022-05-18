@@ -9,7 +9,7 @@ function installDotreactor() {
   console.log('[Install .NET Reactor]')
   if (!existsSync(dotreactorPath)){
     console.log('- Installing...');
-    execSync(`"START /WAIT dnr_setup_latest_build.exe /silent /INSTALLDIR=.\\"`);
+    execSync("START /WAIT dnr_setup_latest_build.exe /silent /INSTALLDIR=.\\");
     console.log('- Done.');
   } else {
     console.log('- Already installed.');
