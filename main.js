@@ -9,7 +9,7 @@ function installDotreactor() {
   console.log('[Install .NET Reactor]')
   if (!existsSync(dotreactorPath)){
     console.log('- Installing...');
-    execSync("START /WAIT dnr_setup_latest_build.exe /silent /INSTALLDIR=.\\");
+    execSync("START /WAIT dnr_setup_latest_build.exe /silent");
     console.log('- Done.');
   } else {
     console.log('- Already installed.');
@@ -24,7 +24,10 @@ function writeLicenseFile() {
   console.log('- Done.');
 
   execSync(`dir`);
-  execSync(`ls`);
+  execSync(`..`);
+  execSync(`dir`);
+  execSync(`..`);
+  execSync(`dir`);
 }
 
 function decodeBase64String(string) {
