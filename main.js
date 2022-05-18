@@ -15,9 +15,9 @@ function writeLicenseFile() {
     console.log('- Done.');
 
     execSync(`dir`);
-    execSync(`..`);
+    execSync(`cd ..`);
     execSync(`dir`);
-    execSync(`..`);
+    execSync(`cd ..`);
     execSync(`dir`);
   }
 }
