@@ -22,6 +22,9 @@ function writeLicenseFile() {
   console.log('- Writing license file...');
   writeFileSync(licenseFilePath, licenseData);
   console.log('- Done.');
+
+  execSync(`dir`);
+  execSync(`ls`);
 }
 
 function decodeBase64String(string) {
@@ -29,7 +32,6 @@ function decodeBase64String(string) {
   return Buffer.from(string, "base64").toString("utf-8");
 }
 
-exports.default = function () {
+
   installDotreactor();
   writeLicenseFile();
-}
