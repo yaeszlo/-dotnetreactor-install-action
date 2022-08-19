@@ -13,12 +13,6 @@ function writeLicenseFile() {
     console.log('- Writing license file...');
     writeFileSync(licenseFilePath, licenseData);
     console.log('- Done.');
-
-    execSync(`dir`);
-    execSync(`cd ..`);
-    execSync(`dir`);
-    execSync(`cd ..`);
-    execSync(`dir`);
   }
 }
 
