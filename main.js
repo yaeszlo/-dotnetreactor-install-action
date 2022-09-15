@@ -2,7 +2,7 @@ const {existsSync, writeFileSync} = require('fs');
 const {execSync} = require('child_process');
 const {getInput} = require('@actions/core');
 
-const licenseFilePath = "./license.v3lic";
+const licenseFilePath = `${__dirname }/license.v3lic`;
 
 function writeLicenseFile() {
   console.log('[Set up license]');
