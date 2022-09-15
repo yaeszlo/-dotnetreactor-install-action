@@ -18,7 +18,7 @@ function writeLicenseFile() {
 
 function decodeBase64String(string) {
   console.log('- Decoding license');
-  return Buffer.from(string, "base64").toString("utf-8");
+  return Buffer.from(string, "base64");
 }
 
 writeLicenseFile();
